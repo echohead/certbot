@@ -1,0 +1,3 @@
+#!/bin/ash
+/run-certbot
+/usr/sbin/crond -f -l 8

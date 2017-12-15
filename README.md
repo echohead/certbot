@@ -17,20 +17,7 @@ docker run -it \
   --rm -p 8001:80 \
   -e 'EMAIL=user@example.com' \
   -e 'DOMAINS=example.com,foo.example.com' \
+  -v /some/dir:/etc/letsencrypt:rw
   echohead/certbot
-```
-
-## development
-
-re-build the image locally:
-
-```
-make docker
-```
-
-push to dockerhub:
-
-```
-make release
 ```
 

@@ -1,0 +1,14 @@
+#!/bin/ash
+set -eux
+
+date
+
+/usr/bin/certbot \
+  certonly \
+  --standalone \
+  --standalone-supported-challenges http-01 \
+  --keep-until-expiring \
+  --text \
+  --agree-tos \
+  --email $EMAIL \
+  --domains $DOMAINS

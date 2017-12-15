@@ -1,5 +1,9 @@
 FROM alpine:3.4
 RUN apk add --no-cache certbot
-ADD run-certbot-forever /bin/run-certbot-forever
+COPY crontab.txt /crontab.txt
+COPY run-certbot /run-certbot
+COPY entrypoint /entrypoint
+RUN /usr/bin/crontab /crontab.txt
+VOLUME /etc/letsencrypt
 EXPOSE 80
-ENTRYPOINT ["/bin/run-certbot-forever"]
+ENTRYPOINT ["/entrypoint"]
